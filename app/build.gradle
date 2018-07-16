@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'androidx.navigation.safeargs'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -22,15 +23,38 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // Core libraries
-    implementation "androidx.appcompat:appcompat:$rootProject.androidXAppCompatVersion"
+    implementation "androidx.appcompat:appcompat:$rootProject.androidXVersion"
+    implementation "androidx.legacy:legacy-support-v4:$rootProject.androidXVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.androidXLifecycleExtVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.androidXContraintLayoutVersion"
 
     // Architecture components
     implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
+    annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
+    implementation "android.arch.work:work-runtime:$rootProject.archWorkManagerVersion"
+    implementation "android.arch.work:work-firebase:$rootProject.archWorkManagerVersion"
     implementation "android.arch.navigation:navigation-fragment:$rootProject.archNavigationVersion"
     implementation "android.arch.navigation:navigation-ui:$rootProject.archNavigationVersion"
+    implementation "android.arch.persistence.room:runtime:$rootProject.archRoomVersion"
+    implementation "android.arch.persistence.room:rxjava2:$rootProject.archRoomVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.archRoomVersion"
+
+    // Dagger dependencies
+    implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
+    implementation "com.google.dagger:dagger-android:$rootProject.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
+
+    // RxJava dependencies
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
 
     // Test
     testImplementation "junit:junit:$rootProject.junitVersion"
     androidTestImplementation "androidx.test:runner:$rootProject.androidTestRunnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.androidEspressoVersion"
+    androidTestImplementation "android.arch.work:work-testing:$rootProject.archWorkManagerVersion"
+    androidTestImplementation "android.arch.persistence.room:testing:$rootProject.archRoomVersion"
+
 }

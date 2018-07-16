@@ -8,7 +8,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.0-alpha03'
-        
+        classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:1.0.0-alpha03"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -33,11 +33,26 @@ ext{
     minSdkVersion = 14
     targetSdkVersion = 28
 
-    androidXAppCompatVersion = '1.0.0-beta01'
+    // androidx support libraries
+    androidXVersion = '1.0.0-beta01'
+    androidXLifecycleExtVersion = '2.0.0-beta01'
+    androidXContraintLayoutVersion = '1.1.2'
 
+    // architecture components libraries
     archLifecycleVersion = '1.1.1'
+    archRoomVersion = '1.1.0'
     archNavigationVersion = '1.0.0-alpha03'
+    archWorkManagerVersion = '1.0.0-alpha04'
 
+    // third-party libraries
+    googlePlayServiceVersion = "15.0.1"
+    daggerVersion = "2.15"
+    rxjavaVersion = '2.1.12'
+    rxandroidVersion = '2.0.2'
+    sqlbrite3Version = '3.2.0'
+    retrofitVersion = '2.4.0'
+
+    // test libraries
     junitVersion = '4.12'
     androidTestRunnerVersion = '1.1.0-alpha3'
     androidEspressoVersion = '3.1.0-alpha3'
